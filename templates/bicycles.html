@@ -1,0 +1,270 @@
+{% extends 'base-shop.html' %}
+{%block content%}
+    
+<div class="bikes">		 
+	 <div class="mountain-sec">
+		 <h2>MOUNTAIN BIKES</h2>
+
+          {% for prod in products %}
+                     {% if prod.category.slug == 'mountain' %}
+            <a href="/single/"><div class="bike">
+			 <img src="{{prod.image.url}}" alt="Image"/>
+		     <div class="bike-cost">
+					 <div class="bike-mdl">
+						 <h4>NAME<span>{{ prod.name}}</span></h4>
+					 </div>
+					 <div class="bike-cart">
+						 <a class="buy" href="/single/">BUY NOW</a>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+				 <div class="fast-viw">
+						<a href="/single/">Quick View</a>
+				 </div>
+			 </div></a>
+
+                     {% endif %}
+         {% endfor %}
+{#		 <a href="/single/"><div class="bike">				 #}
+{#			 <img src="../static/images/bik3.jpg" alt=""/>#}
+{#		     <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike">				 #}
+{#				 <img src="../static/images/bik1.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none2">				 #}
+{#				 <img src="../static/images/bik4.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none1">				 #}
+{#				 <img src="../static/images/bik6.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+			 <div class="clearfix"></div>
+	  </div>
+		 
+	  <div class="singlespeed-sec">
+		   <h2>SINGLE SPEED-BIKES</h2>
+          {% for prod in products %}
+                     {% if prod.category.slug == 'single-speed' %}
+          <a href="/single/"><div class="bike">
+				 <img src="{{prod.image.url}}" alt=""/>
+				 <div class="bike-cost">
+					 <div class="bike-mdl">
+						 <h4>NAME<span>{{prod.name}}</span></h4>
+					 </div>
+					 <div class="bike-cart">
+						 <a class="buy" href="/single/">BUY NOW</a>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+				 <div class="fast-viw">
+						<a href="/single/">Quick View</a>
+				 </div>
+			 </div></a>
+
+
+          {% endif %}
+         {% endfor %}
+
+
+
+{#			 <a href="/single/"><div class="bike">				 #}
+{#				 <img src="../static/images/s1.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike">				 #}
+{#				 <img src="../static/images/s2.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none2">				 #}
+{#				 <img src="../static/images/s3.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none1">				 #}
+{#				 <img src="../static/images/s4.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+			 <div class="clearfix"></div>
+		 </div>
+		 
+		 <div class="road-sec">
+		   <h2>ROAD-BIKES</h2>
+             {% for prod in products %}
+                     {% if prod.category.slug == 'road' %}
+             <a href="/single/"><div class="bike">
+				 <img src="{{prod.image.url}}" alt=""/>
+				 <div class="bike-cost">
+					 <div class="bike-mdl">
+						 <h4>NAME<span>{{prod.name}}</span></h4>
+					 </div>
+					 <div class="bike-cart">
+						 <a class="buy" href="/single/{{ prod.id }}/">BUY NOW</a>
+					 </div>
+					 <div class="clearfix"></div>
+				 </div>
+				 <div class="fast-viw">
+						<a href="/single/{{ prod.id }}/">Quick View</a>
+				 </div>
+			 </div></a>
+              {% endif %}
+         {% endfor %}
+
+
+{#			 <a href="/single/"><div class="bike">				 #}
+{#				 <img src="../static/images/r1.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike">				 #}
+{#				 <img src="../static/images/r3.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none2">				 #}
+{#				 <img src="../static/images/r2.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+{#			 <a href="/single/"><div class="bike none1">				 #}
+{#				 <img src="../static/images/r4.jpg" alt=""/>#}
+{#				 <div class="bike-cost">#}
+{#					 <div class="bike-mdl">#}
+{#						 <h4>NAME<span>Model:M4585</span></h4>#}
+{#					 </div>#}
+{#					 <div class="bike-cart">						 #}
+{#						 <a class="buy" href="/single/">BUY NOW</a>#}
+{#					 </div>#}
+{#					 <div class="clearfix"></div>#}
+{#				 </div>#}
+{#				 <div class="fast-viw">#}
+{#						<a href="/single/">Quick View</a>#}
+{#				 </div>#}
+{#			 </div></a>#}
+			 <div class="clearfix"></div>
+		 </div>
+		 
+	 </div>
+</div>
+<!---->
+{% endblock %}
+
