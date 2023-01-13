@@ -33,7 +33,7 @@ def parts_product_list(request, category_slug=None):
     return render(request, 'parts.html', {'category': category, 'categories': categories, 'products': products})
 
 
-def product_details(reqiest, id, slug):
+def product_details(request, id, slug):
     product = get_object_or_404(Product, id=id, slug=slug)
     cart_product_form = CartAddProductForm()
-    return render(reqiest, 'single.html', {'product': product, 'cart_product_form': cart_product_form})
+    return render(request, 'single.html', {'product': product, 'cart_product_form': cart_product_form})

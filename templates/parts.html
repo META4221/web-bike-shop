@@ -1,4 +1,6 @@
 {% extends 'base-shop.html' %}
+{% load static %}
+
 {% block content %}
 
 <div class="parts">
@@ -18,19 +20,12 @@
                      {% for prod in products %}
                           {% if prod.category.slug == 'chasti' %}
                          <div class="parts1">
-						 <a href="/single/"><div class="part-sec">
-							 <img src="{{prod.image.url}}" alt=""/>
+						 <a href="/single/{{ prod.id }}/{{ prod.slug }}/"><div class="part-sec">
+                             <img src="{{prod.image.url}}" alt=""/>
 							 <div class="part-info">
 								 <a href="#"><h5>{{prod.name}}<span>{{prod.price}}</span></h5></a>
-								 <a class="add-cart" href="/single/">Quick View</a>
-								 <a class="qck" href="/single/">BUY NOW</a>
-                                 <p>
-                                     <form action="{% url 'cart:cart_add' prod.id %}" method="post">
-                                 {{ cart_product_form }}
-                                 {% csrf_token %}
-                                 <input class="buy-now btn btn-sm height-auto px-4 py-3 btn-primary" type="submit" value="Add to cart">
-                             </form>
-                                 </p>
+								 <a class="add-cart" href="/single/{{ prod.id}}/{{ prod.slug }}/">Quick View</a>
+								 <a class="qck" href="/single/{{ prod.id}}/{{ prod.slug }}/">BUY NOW</a>
 							 </div>
 						 </div></a>
                          </div>

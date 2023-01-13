@@ -21,12 +21,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view()),
-    path('404/', ErrorView.as_view()),
-    path('', include("bike.urls", namespace='accessories')),
-    path('single/', SingleView.as_view()),
     path('cart/', include('cart.urls', namespace='cart')),
-    path('parts/', include('bike.urls', namespace='parts')),
+    path('', IndexView.as_view()),
+    path('index/', IndexView.as_view()),
+    path('404/', ErrorView.as_view()),
+    path('orders/', include('orders.urls', namespace='orders')),
+    path('', include("bike.urls", namespace='accessories')),
+    path('', include('bike.urls', namespace='parts')),
     path('', include('bike.urls', namespace='bicycles')),
 ]
 

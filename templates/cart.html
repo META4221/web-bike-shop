@@ -5,26 +5,31 @@
 	 <div class="container">
 		 <div class="cart-top">
 			<a href="/index/"><< home</a>
-		 </div>	
-			
+		 </div>
+
 		 <div class="col-md-9 cart-items">
-			 <h2>My Shopping Bag (0)</h2>
-				<script>$(document).ready(function(c) {
-					$('.close1').on('click', function(c){
-						$('.cart-header').fadeOut('slow', function(c){
-							$('.cart-header').remove();
+			 <h2>My Shopping Bag ({{ cart|length }})</h2>
+
+             {% for item in cart %}
+                 {% with product=item.product %}
+                     <script>$(document).ready(function(c) {
+					$('.{{ product.id }}').on('click', function(c){
+						$('.{{ product.id }}').fadeOut('slow', function(c){
+							$('.{{ product.id }}').remove();
 						});
-						});	  
+						});
 					});
 			   </script>
-                <div class="cart-header">
-
-                 {% for item in cart %}
-                                {% with product=item.product %}
-
-                 <div class="close1">{% url "cart:cart_remove" product_id %}</div>
+			 <div class="cart-header {{ product.id }}">
+				 <div class="close1 {{ product.id }}">
+                 <form action="{% url "cart:cart_remove" product.id %}"
+                                                  method="post">
+                                                <input type="submit" class="btn btn-primary height-auto btn-sm"
+                                                       value="X">
+                                                {% csrf_token %}
+                                            </form>
+                 </div>
 				 <div class="cart-sec">
-{#                     тут начинается шаблон товара в карзине#}
 						<div class="cart-item cyc">
 							 <img src="{{product.image.url}}"/>
 						</div>
@@ -32,10 +37,7 @@
 							 <h3>{{ product.name}}<span>{{ product.name}}</span></h3>
 							 <h4><span>Rs. $ </span>{{ product.price }}</h4>
 							 <p class="qty">Qty ::</p>
-{#                           {{ item.update_quantity_form.quantity }}#}
-{#                           {{ item.update_quantity_from.override }}#}
-{#							 <input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">#}
-{#                           {% csrf_token %}#}
+							 <input min="1" type="number" id="quantity" name="quantity" value="{{ item.quantity }}" class="form-control input-small">
 					   </div>
 					   <div class="clearfix"></div>
 						<div class="delivery">
@@ -44,59 +46,27 @@
 							 <div class="clearfix"></div>
 				        </div>
 				  </div>
-			 {% endwith %}
-                 {% endfor %}
-             </div>
-			 <script>$(document).ready(function(c) {
-					$('.close2').on('click', function(c){
-							$('.cart-header2').fadeOut('slow', function(c){
-						$('.cart-header2').remove();
-					});
-					});	  
-					});
-			 </script>
-			 <div class="cart-header2">
-				 <div class="close2"> </div>
-				  <div class="cart-sec">
-						<div class="cart-item">
-							 <img src="../static/images/a3.png"/>
-						</div>
-					   <div class="cart-item-info">
-							 <h3>RIDE HELMET<span>Model No: 8768</span></h3>
-							 <h4><span>Rs. $ </span>200.00</h4>
-							 <p class="qty">Qty ::</p>
-							 <input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
-					   </div>
-					   <div class="clearfix"></div>
-						<div class="delivery">
-							 <p>Service Charges:: Rs.100.00</p>
-							 <span>Delivered in 2-3 business days</span>
-							 <div class="clearfix"></div>
-				        </div>						
-				  </div>
-			  </div>		
-		 </div>
-		 
+			 </div>
+		     {% endwith %}
+             {% endfor %}
+         </div>
+
 		 <div class="col-md-3 cart-total">
 			 <a class="continue" href="#">Continue to basket</a>
 			 <div class="price-details">
 				 <h3>Price Details</h3>
 				 <span>Total</span>
-                 {% for item in cart %}
-                                {% with product=item.product %}
-				 <span class="total">{{ product.price }}</span>
-                  {% endwith %}
-                 {% endfor %}
+				 <span class="total">{{ cart.get_total_price}}</span>
 				 <span>Discount</span>
 				 <span class="total">---</span>
 				 <span>Delivery Charges</span>
 				 <span class="total">150.00</span>
-				 <div class="clearfix"></div>				 
-			 </div>	
+				 <div class="clearfix"></div>
+			 </div>
 			 <h4 class="last-price">TOTAL</h4>
-			 <span class="total final">{{ item.quantity }}</span>
+			 <span class="total final">{{ cart.get_total_price }}+150</span>
 			 <div class="clearfix"></div>
-			 <a class="order" href="#">Place Order</a>
+			 <a class="order" href="{% url "orders:order_create" %}">Place Order</a>
 			 <div class="total-item">
 				 <h3>OPTIONS</h3>
 				 <h4>COUPONS</h4>
@@ -108,4 +78,5 @@
 </div>
 <!---->
 {% endblock %}
+
 

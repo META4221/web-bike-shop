@@ -1,4 +1,7 @@
 {% extends 'base-shop.html' %}
+{% load static %}
+
+
 {%block content%}
 <!--/banner-->
 <div class="product">
@@ -10,8 +13,8 @@
 						<a href="/index/">Home</a> <span>::</span>
 						</div>
 					 <!--Include the Etalage files-->
-						<link rel="stylesheet" href="../static/css/etalage.css">
-						<script src="../static/js/jquery.etalage.min.js"></script>
+						<link rel="stylesheet" href="/static/css/etalage.css">
+						<script src="/static/js/jquery.etalage.min.js"></script>
 				<script>
 			jQuery(document).ready(function($){
 
@@ -34,21 +37,21 @@
 						  <ul id="etalage">
 							<li>
 								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="../static/images/m1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src=".{{product.image.url}}" class="img-responsive" title="" />
+									<img class="etalage_thumb_image" src="{{product.image.url}}" class="img-responsive" alt="" />
+									<img class="etalage_source_image" src="{{product.image.url}}" class="img-responsive" alt="" />
 								</a>
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="../static/images/m2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="{{product.image.url}}" class="img-responsive" title="" />
+								<img class="etalage_thumb_image" src="{{product.image.url}}" class="img-responsive" alt=""/>
+								<img class="etalage_source_image" src="{{product.image.url}}" class="img-responsive" alt="" />
 							</li>
 							<li>
-								<img class="etalage_thumb_image" src="../static/images/m3.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="{{product.image.url}}"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="{{product.image.url}}" class="img-responsive" alt="" />
+								<img class="etalage_source_image" src="{{product.image.url}}"class="img-responsive" alt="" />
 							</li>
 						    <li>
-								<img class="etalage_thumb_image" src="../static/images/m4.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="{{product.image.url}}"class="img-responsive"  />
+								<img class="etalage_thumb_image" src="{{product.image.url}}" class="img-responsive" alt="" />
+								<img class="etalage_source_image" src="{{product.image.url}}"class="img-responsive"  alt="" />
 							</li>
 						</ul>
 						</div>
@@ -65,7 +68,11 @@
 							<div class="btn_form">
 								<a href="/cart/">buy now</a>
 								<a href="/cart/">Add to cart</a>
-
+                            <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {{ cart_product_form }}
+                                {% csrf_token %}
+                                <input type="submit" value="В корзину">
+                            </form>
 							</div>
 							<div class="bike-type">
 							<p>TYPE  ::<a href="#">MOUNTAIN BIKE</a></p>
@@ -75,7 +82,7 @@
 							<p class="desc">The first mechanically-propelled, two-wheeled vehicle may have been built by Kirkpatrick MacMillan, a Scottish blacksmith, in 1839, although the claim is often disputed. He is also associated with the first recorded instance of a cycling traffic offense, when a Glasgow newspaper in 1842 reported an accident in which an anonymous "gentleman from Dumfries-shire... bestride a velocipede... of ingenious design" knocked over a little girl in Glasgow and was fined five
 							The word bicycle first appeared in English print in The Daily News in 1868, to describe "Bysicles and trysicles" on the "Champs Elysées and Bois de Boulogne.</p>
 					 </div>
-					 <div class="clearfix"></div>				 	
+					 <div class="clearfix"></div>
 				  </div>
 			  </div>
 		  </div>
@@ -84,16 +91,16 @@
 			 <div class="product">
 					 <div class="product-desc">
 						  <div class="product-img product-img2">
-							 <img src="../static/images/s1.jpg" class="img-responsive " alt=""/>
+							 <img src="/static/images/s1.jpg" class="img-responsive " alt=""/>
 						 </div>
 						 <div class="prod1-desc">
 								<h5><a class="product_link" href="/bicycles/">Road Bike</a></h5>
-								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>									
+								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>
 						 </div>
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="product_price">
-							<span class="price-access">$300.51</span>								
+							<span class="price-access">$300.51</span>
 							<a class="button1" href="/cart/"><span>Add to cart</span></a>
 					 </div>
 						<div class="clearfix"></div>
@@ -101,16 +108,16 @@
 			 <div class="product">
 					 <div class="product-desc">
 						  <div class="product-img product-img2">
-							 <img src="../static/images/s2.jpg" class="img-responsive " alt=""/>
+							 <img src="/static/images/s2.jpg" class="img-responsive " alt=""/>
 						 </div>
 						 <div class="prod1-desc">
 								<h5><a class="product_link" href="bicycles.html">Mountain Bike</a></h5>
-								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>									
+								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>
 						 </div>
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="product_price">
-							<span class="price-access">$1500.51</span>								
+							<span class="price-access">$1500.51</span>
 							<a class="button1" href="/cart/"><span>Add to cart</span></a>
 					 </div>
 				  <div class="clearfix"></div>
@@ -118,21 +125,21 @@
 			 <div class="product">
 					 <div class="product-desc">
 						  <div class="product-img product-img2">
-							 <img src="../static/images/s3.jpg" class="img-responsive " alt=""/>
+							 <img src="/static/images/s3.jpg" class="img-responsive " alt=""/>
 						 </div>
 						 <div class="prod1-desc">
 								<h5><a class="product_link" href="bicycles.html">Single Speed Bike</a></h5>
-								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>									
+								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>
 						 </div>
 						 <div class="clearfix"></div>
 					 </div>
 					 <div class="product_price">
-							<span class="price-access">$800.51</span>								
+							<span class="price-access">$800.51</span>
 							<a class="button1" href="/cart/"><span>Add to cart</span></a>
 					 </div>
 				 <div class="clearfix"></div>
 			  </div>
-		 </div>	
+		 </div>
 	 </div>
 </div>
 <!---->

@@ -7,19 +7,19 @@
 
           {% for prod in products %}
                      {% if prod.category.slug == 'mountain' %}
-            <a href="/single/"><div class="bike">
+            <a href="/single/{{ prod.id }}/{{ prod.slug }}/"><div class="bike">
 			 <img src="{{prod.image.url}}" alt="Image"/>
 		     <div class="bike-cost">
 					 <div class="bike-mdl">
 						 <h4>NAME<span>{{ prod.name}}</span></h4>
 					 </div>
 					 <div class="bike-cart">
-						 <a class="buy" href="/single/">BUY NOW</a>
+						 <a class="buy" href="/single/{{ prod.id }}/{{ prod.slug }}/">BUY NOW</a>
 					 </div>
 					 <div class="clearfix"></div>
 				 </div>
 				 <div class="fast-viw">
-						<a href="/single/">Quick View</a>
+						<a href="/single/{{ prod.id }}/{{ prod.slug }}/">Quick View</a>
 				 </div>
 			 </div></a>
 
@@ -92,19 +92,19 @@
 		   <h2>SINGLE SPEED-BIKES</h2>
           {% for prod in products %}
                      {% if prod.category.slug == 'single-speed' %}
-          <a href="/single/"><div class="bike">
+          <a href="/single/{{ prod.id }}/{{ prod.slug }}/"><div class="bike">
 				 <img src="{{prod.image.url}}" alt=""/>
 				 <div class="bike-cost">
 					 <div class="bike-mdl">
 						 <h4>NAME<span>{{prod.name}}</span></h4>
 					 </div>
 					 <div class="bike-cart">
-						 <a class="buy" href="/single/">BUY NOW</a>
+						 <a class="buy" href="/single/{{ prod.id }}/{{ prod.slug }}/">BUY NOW</a>
 					 </div>
 					 <div class="clearfix"></div>
 				 </div>
 				 <div class="fast-viw">
-						<a href="/single/">Quick View</a>
+						<a href="/single/{{ prod.id }}/{{ prod.slug }}/">Quick View</a>
 				 </div>
 			 </div></a>
 
@@ -181,19 +181,19 @@
 		   <h2>ROAD-BIKES</h2>
              {% for prod in products %}
                      {% if prod.category.slug == 'road' %}
-             <a href="/single/"><div class="bike">
+             <a href="/single/{{ prod.id }}/{{ prod.slug }}/"><div class="bike">
 				 <img src="{{prod.image.url}}" alt=""/>
 				 <div class="bike-cost">
 					 <div class="bike-mdl">
 						 <h4>NAME<span>{{prod.name}}</span></h4>
 					 </div>
 					 <div class="bike-cart">
-						 <a class="buy" href="/single/{{ prod.id }}/">BUY NOW</a>
+						 <a class="buy" href="/single/{{ prod.id }}/{{ prod.slug }}/">BUY NOW</a>
 					 </div>
 					 <div class="clearfix"></div>
 				 </div>
 				 <div class="fast-viw">
-						<a href="/single/{{ prod.id }}/">Quick View</a>
+						<a href="/single/{{ prod.id }}/{{ prod.slug }}/">Quick View</a>
 				 </div>
 			 </div></a>
               {% endif %}

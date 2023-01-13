@@ -1,4 +1,5 @@
 {% extends 'base-shop.html' %}
+{% load static %}
 {% block content %}
 
 <div class="parts">
@@ -18,12 +19,12 @@
                  {% for prod in products %}
                      {% if prod.category.slug == 'accessories' %}
                  <div class="parts1">
-                     <a href="/single/"><div class="part-sec">
+                     <a href="/single/{{ prod.id }}/{{ prod.slug }}/"><div class="part-sec">
         				 <img src="{{prod.image.url}}" alt="Image"/>
 						 <div class="part-info">
 							 <a href="#"><h5>{{ prod.name}}<span>${{ prod.price }}</span></h5></a>
-							 <a class="add-cart" href="/single/">Quick View</a>
-							 <a class="qck" href="/single/">BUY NOW</a>
+							 <a class="add-cart" href="/single/{{ prod.id }}/{{ prod.slug }}/">Quick View</a>
+							 <a class="qck" href="/single/{{ prod.id }}/{{ prod.slug }}/">BUY NOW</a>
 						 </div>
 					 </div></a>
                  </div>
